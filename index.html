@@ -1,70 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>AR Anatomy Dance</title>
+<head>
+  <meta charset="utf-8">
+  <title>AR TEST</title>
 
-    <!-- A-Frame + AR.js -->
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
 
-    <style>
-      body { margin: 0; overflow: hidden; }
-    </style>
-  </head>
+  <style>
+    body { margin: 0; overflow: hidden; }
+  </style>
+</head>
 
-  <body>
-    <a-scene
-      embedded
-      arjs="sourceType: webcam; debugUIEnabled: false;"
-      renderer="logarithmicDepthBuffer: true;"
-    >
+<body>
+  <a-scene
+    embedded
+    arjs="sourceType: webcam; debugUIEnabled: false;">
 
-      <!-- Marker -->
-      <a-marker preset="hiro">
+    <a-marker preset="hiro">
 
-        <!-- Cartoon Anatomy -->
-        <a-image
-          src="anatomy.png.jpg"
-          position="0 0.5 0"
-          rotation="-90 0 0"
-          scale="1 1 1"
+      <!-- TEST IMAGE -->
+      <a-image
+        src="anatomy-png.png"
+        position="0 0.5 0"
+        rotation="-90 0 0"
+        scale="1 1 1"
 
-          <!-- หมุนตัว -->
-          animation="property: rotation;
-                     to: -90 360 0;
-                     loop: true;
-                     dur: 5000;
-                     easing: linear"
+        animation="property: position;
+                   to: 0 0.8 0;
+                   dir: alternate;
+                   dur: 1000;
+                   loop: true;">
+      </a-image>
 
-          <!-- เด้งขึ้นลง -->
-          animation__bounce="property: position;
-                             to: 0 0.7 0;
-                             dir: alternate;
-                             loop: true;
-                             dur: 800"
+    </a-marker>
 
-          <!-- เต้นซ้ายขวา -->
-          animation__dance="property: rotation;
-                            to: -90 15 0;
-                            dir: alternate;
-                            loop: true;
-                            dur: 600"
-
-          <!-- กระพริบตา -->
-          animation__blink="property: scale;
-                            to: 1 0.85 1;
-                            dir: alternate;
-                            loop: true;
-                            dur: 180;
-                            delay: 3000">
-        </a-image>
-
-      </a-marker>
-
-      <!-- Camera -->
-      <a-entity camera></a-entity>
-
-    </a-scene>
-  </body>
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
 </html>
